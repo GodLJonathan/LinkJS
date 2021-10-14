@@ -5,7 +5,7 @@ const Movie = require('./Models/Movie')
 require('dotenv').config();
 
 async function findTrailer(title) {
-    const browser = await chromium.launch({headless: false});
+    const browser = await chromium.launch();
     const page = await browser.newPage();
     await page.goto('https://www.youtube.com/results?search_query=' + title + " trailer");
     await page.click('#contents > .style-scope.ytd-item-section-renderer > #dismissible > .text-wrapper.style-scope.ytd-video-renderer > #meta > #title-wrapper > .title-and-badge.style-scope.ytd-video-renderer > #video-title')
