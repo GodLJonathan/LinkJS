@@ -19,9 +19,11 @@ async function findAll() {
         const movies = await Movie.find({});
         
         for(const movie of movies) {
+            if(movie.trailer && movie.trailer.length > 10) continue;
             const trailerUrl = await findTrailer(movie.title);
             movie.trailer = trailerUrl;
             await movie.save();
+            console.log("Added Youtube Link for " + movie.title);
         }
 
         console.log("All movies are done, stopping the code execution");
