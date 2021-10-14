@@ -28,7 +28,7 @@ jobs:
       run: npm install
       
     - name: Adding data to MongoDB
-      run: node getLinks.js
+      run: node addLinks.js
       env:
           CI: true
           MONGO_URL: ${{ secrets.MONGO_URL }}
